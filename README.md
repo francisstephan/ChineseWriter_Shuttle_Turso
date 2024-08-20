@@ -1,5 +1,7 @@
 # Chinese character reader with Shuttle and Turso
 
-Not working presently.
+Works after I switched back from libsql version 0.5 to libsql version 3.1
 
-If you comment out the lines concerning shuttle_turso, the program works fine, as can bee seen on [https://chinese-writer.shuttleapp.rs](https://chinese-writer.shuttleapp.rs)
+Work in progress
+
+Watch it on [https://chinese-writer.shuttleapp.rs/](https://chinese-writer.shuttleapp.rs/)

@@ -8,4 +8,15 @@ Setting up the database on Turso worked like a charm, simply following the Quick
 
 The program also accesses the online database both when run locally (cargo shuttle run) and when run from shuttle.
 
-Watch it on [https://chinese-writer.shuttleapp.rs/](https://chinese-writer.shuttleapp.rs/)
+I met two issues:
+
+- I initially used the most recent version of libsql, which was 0.5.0. But this version proved non compatible with the Shuttle stack, so I had to switch back to libsql 0.3.1
+
+- When writing handlers for the Axum framework, the extractors (in my case the Form extractor) should be listed after` the state parameter in the handler parameters.
+
+In both cases, the error diagnostic was very unhelpful, typically :
+"the trait bound `fn(Form<CharData>, axum::extract::State<Arc<libsql::Database>>) -> impl Future<Output = impl IntoResponse> {zilist}: Handler<_, _>` is not satisfied"
+
+Additionnaly, when working locally, I cannot work without an internet connection (since I need access to the distant libsql database...)
+
+Watch the program on [https://chinese-writer.shuttleapp.rs/](https://chinese-writer.shuttleapp.rs/)

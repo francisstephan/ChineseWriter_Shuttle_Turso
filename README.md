@@ -19,4 +19,6 @@ In both cases, the error diagnostic was very unhelpful, typically :
 
 Additionnaly, when working locally, I cannot work without an internet connection (since I need access to the distant libsql database...)
 
+Deserialization is implemented for libsql starting with version 0.5.0, so I could not use it here.
+
 Watch the program on [https://chinese-writer.shuttleapp.rs/](https://chinese-writer.shuttleapp.rs/)

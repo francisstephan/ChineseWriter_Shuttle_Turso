@@ -52,30 +52,26 @@ async fn read_query(conn: libsql::Connection, query: &str) -> Vec<Zi> {
     let mut disp = Vec::<Zi>::new();
 
     let mut rows = conn.query(query, ()).await.unwrap();
-    let mut unread = true;
-    while unread {
+
+    loop {
         match rows.next().await {
             Ok(res) => match res {
                 Some(row) => {
                     let unicode = row.get::<String>(2).unwrap();
                     let unicodestr = u32::from_str_radix(unicode.as_str(), 16).unwrap();
-                    let carac = char::from_u32(unicodestr).unwrap();
+
                     let zi = Zi {
                         id: row.get::<i64>(0).unwrap(),
                         pinyin_ton: row.get::<String>(1).unwrap().clone(),
                         unicode: unicode.clone(),
-                        hanzi: carac,
+                        hanzi: char::from_u32(unicodestr).unwrap(),
                         sens: row.get::<String>(3).unwrap().clone(),
                     };
                     disp.push(zi);
                 }
-                None => {
-                    unread = false;
-                }
+                None => break,
             },
-            Err(_) => {
-                unread = false;
-            }
+            Err(_) => break,
         }
     }
 

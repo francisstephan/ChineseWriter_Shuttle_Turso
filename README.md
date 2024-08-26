@@ -6,7 +6,7 @@ Since the Shuttle documentation and examples are more detailed for the Axum fram
 
 Setting up the database on Turso worked like a charm, simply following the Quickstart guide [https://docs.turso.tech/quickstart](https://docs.turso.tech/quickstart)
 
-The program also accesses the online database both when run locally (cargo shuttle run) and when run from shuttle.
+The program accesses the online database, both when run locally (cargo shuttle run) and when run from shuttle.
 
 I met two issues:
 
@@ -19,6 +19,6 @@ In both cases, the error diagnostic was very unhelpful, typically :
 
 Additionnaly, when working locally, I cannot work without an internet connection (since I need access to the distant libsql database...)
 
-Deserialization is implemented for libsql starting with version 0.5.0, so I could not use it here.
+Deserialization of database rows is available for libsql, through module libsql::de, starting with version 0.3.5, but I did not need it here.
 
 Watch the program on [https://chinese-writer.shuttleapp.rs/](https://chinese-writer.shuttleapp.rs/)

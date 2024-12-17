@@ -10,7 +10,7 @@ The program accesses the online database, both when run locally (cargo shuttle r
 
 I met two issues:
 
-- I initially used the most recent version of libsql, which was 0.5.0. But this version proved non compatible with the Shuttle stack, so I had to switch back to libsql 0.3.1
+- I initially used the most recent version of libsql, which was 0.5.0. But this version proved non compatible with the Shuttle stack, so I had to switch back to libsql 0.3.5
 
 - When writing handlers for the Axum framework, the extractors (in my case the Form extractor) should be listed after` the state parameter in the handler parameters.
 
